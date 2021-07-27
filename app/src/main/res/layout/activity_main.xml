@@ -1,50 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="#D6FFC7">
-
-        <TextView
-            android:id="@+id/jul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jul"
-            android:textSize="40sp"
-            android:fontFamily="sans-serif-smallcaps"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/jul_income"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/income"/>
-        <TextView
-            android:id="@+id/jul_expenditure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/expenditure"/>
-        <CalendarView
-            android:layout_marginTop="10dp"
+        <FrameLayout
+            android:id="@android:id/tabcontent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/img01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/month"/>
+            <ImageView
+                android:id="@+id/img02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/week"/>
+            <ImageView
+                android:id="@+id/img03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/day"/>
+            <ImageView
+                android:id="@+id/img04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/statistics"/>
+        </FrameLayout>
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TabWidget>
     </LinearLayout>
-
-
-
-</LinearLayout>
+</TabHost>
