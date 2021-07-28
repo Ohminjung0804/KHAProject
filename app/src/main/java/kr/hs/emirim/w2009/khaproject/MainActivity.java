@@ -1,9 +1,11 @@
 package kr.hs.emirim.w2009.khaproject;
 
 import android.app.TabActivity;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 public class MainActivity extends TabActivity {
 
@@ -17,6 +19,8 @@ public class MainActivity extends TabActivity {
 
         TabHost.TabSpec t1 = tabHost.newTabSpec("one").setIndicator("월간",getResources().getDrawable(R.drawable.month));
         t1.setContent(R.id.img01);
+        TextView tp =(TextView)tabHost.getCurrentTabView().findViewById(android.R.id.title);
+        tp.setTextColor(Color.parseColor("#808080"));
         tabHost.addTab(t1);
 
         TabHost.TabSpec t2 = tabHost.newTabSpec("two").setIndicator("주간",getResources().getDrawable(R.drawable.week));
@@ -40,5 +44,18 @@ public class MainActivity extends TabActivity {
         for (int tab = 0; tab < tabHost.getTabWidget().getChildCount(); tab++){
             tabHost.getTabWidget().getChildAt(tab).getLayoutParams().height = 200;
         }
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+                    tabHost.getTabWidget().getChildAt(i)
+                            .setBackgroundColor(Color.parseColor("#FFFFD2")); // unselected
+                }
+
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab())
+                        .setBackgroundColor(Color.parseColor("#FAED7D")); // selected
+
+            }
+        });
     }
 }
