@@ -16,7 +16,6 @@ public class MainActivity extends TabActivity {
         TabHost tabHost = getTabHost();
 
         TabHost.TabSpec t1 = tabHost.newTabSpec("one").setIndicator("월간",getResources().getDrawable(R.drawable.month));
-
         t1.setContent(R.id.img01);
         tabHost.addTab(t1);
 
@@ -26,6 +25,7 @@ public class MainActivity extends TabActivity {
 
         TabHost.TabSpec t3 = tabHost.newTabSpec("three").setIndicator("일간",getResources().getDrawable(R.drawable.day));
         t3.setContent(R.id.img03);
+
         tabHost.addTab(t3);
 
         TabHost.TabSpec t4 = tabHost.newTabSpec("four").setIndicator("통계",getResources().getDrawable(R.drawable.statistics));
