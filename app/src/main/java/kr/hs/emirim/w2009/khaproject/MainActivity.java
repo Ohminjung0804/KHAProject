@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class MainActivity extends TabActivity {
+import com.github.mikephil.charting.charts.LineChart;
 
+public class MainActivity extends TabActivity {
+    private LineChart chart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,13 @@ public class MainActivity extends TabActivity {
             public void onTabChanged(String tabId) {
                 TextView tp =(TextView)tabHost.getCurrentTabView().findViewById(android.R.id.title);
                 tp.setTextColor(Color.parseColor("#808080"));
+                for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+                    tabHost.getTabWidget().getChildAt(i)
+                            .setBackgroundColor(Color.parseColor("#FFFFD2")); // unselected
+                }
+
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab())
+                        .setBackgroundColor(Color.parseColor("#FAED7D")); // selected
             }
         });
     }
